@@ -1,0 +1,24 @@
+Method 02: Search a node in BST
+
+
+class BST {
+    // Function to search a node in BST.
+    boolean search(Node root, int x) {
+        // Your code here
+        
+        Node cur=root;
+        while(cur!=null){
+            if(cur.data==x){
+                return true;
+            }
+            
+            if(cur.data>x){
+                cur=cur.left;
+            }
+            else{
+                cur=cur.right;
+            }
+        }
+        return false;
+    }
+}
