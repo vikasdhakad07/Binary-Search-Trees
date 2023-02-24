@@ -1,0 +1,41 @@
+Method 01: Delete a node from BST
+
+
+class Tree {
+    // Function to delete a node from BST.
+    public static Node deleteNode(Node root, int X) {
+        // code here.
+        if(root==null){
+            return null;
+        }
+        
+        if(root.data>X){
+            root.left=deleteNode(root.left, X);
+        }
+        else if(root.data<X){
+            root.right=deleteNode(root.right, X);
+        }
+        else{
+            if(root.left==null){
+                return root.right;
+            }
+            if(root.right==null){
+                return root.left;
+            }
+            
+            root.data=minval(root.right);
+            root.right=deleteNode(root.right, root.data);
+        }
+        
+        return root;
+    }
+    
+    static int minval(Node root){
+        int minval=root.data;
+        while(root.left!=null){
+             minval=root.left.data;
+            root=root.left;
+        }
+        return minval;
+    }
+}
