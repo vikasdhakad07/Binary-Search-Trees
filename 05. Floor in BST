@@ -1,0 +1,28 @@
+Method 01: Floor in BST
+
+
+class Solution {
+    public static int floor(Node root, int x) {
+        // Code here
+        if(root==null){
+            return -1;
+        }
+        int min=-1;
+        Node cur=root;
+        while(cur!=null){
+            if(cur.data==x){
+                min=cur.data;
+                return min;
+            }
+            
+            if(cur.data<x){
+                min=cur.data;
+                cur=cur.right;
+            }
+            else{
+                cur=cur.left;
+            }
+        }
+        return min;
+    }
+}
