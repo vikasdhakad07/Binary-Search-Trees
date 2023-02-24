@@ -1,0 +1,28 @@
+Method 04: Ceil in BST
+
+
+class Tree {
+    // Function to return the ceil of given number in BST.
+    int findCeil(Node root, int key) {
+        if (root == null) return -1;
+        // Code here
+        Node cur=root;
+        int max=-1;
+        while(cur!=null){
+            if(cur.data==key){
+                max=cur.data;
+                return max;
+            }
+            
+            if(cur.data>key){
+                max=cur.data;
+                cur=cur.left;
+            }
+            else{
+                
+                cur=cur.right;
+            }
+        }
+        return max;
+    }
+}
