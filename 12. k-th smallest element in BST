@@ -1,0 +1,34 @@
+Method 01: k-th smallest element in BST
+
+
+
+class Solution {
+    int count=0;
+    public Node KthSmallest(Node root, int K){
+    if(root==null){
+        return null;
+    }
+    
+   Node left=KthSmallest(root.left, K);
+   if(left!=null)
+       return left;
+      
+    count++;
+   if(count==K){
+       return root;
+   }
+   return KthSmallest(root.right, K);
+    }
+    
+    // Return the Kth smallest element in the given BST
+    public int KthSmallestElement(Node root, int K) {
+        // Write your code here
+        Node res=KthSmallest(root, K);
+        if(res==null){
+            return -1;
+        }
+        else{
+            return res.data;
+        }
+    }
+}
