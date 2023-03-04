@@ -1,0 +1,21 @@
+Method 01: Preorder to BST
+
+
+static int i=0;
+public static Node post_order(int pre[], int size) 
+{
+    //Your code here
+    i=0;
+    return pre_order(pre, Integer.MIN_VALUE, Integer.MAX_VALUE);
+} 
+
+public static Node pre_order(int arr[], int min, int max){
+    if(i>arr.length-1) return null;
+    else if(arr[i]<min||arr[i]>max){
+        return null;
+    }
+    Node root=new Node(arr[i++]);
+    root.left=pre_order(arr, min, root.data);
+    root.right=pre_order(arr, root.data, max);
+    return root;
+}
